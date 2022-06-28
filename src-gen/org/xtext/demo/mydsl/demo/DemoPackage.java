@@ -189,22 +189,13 @@ public interface DemoPackage extends EPackage
   int INST = 4;
 
   /**
-   * The feature id for the '<em><b>Nombre</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INST__NOMBRE = 0;
-
-  /**
    * The number of structural features of the '<em>Inst</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INST_FEATURE_COUNT = 1;
+  int INST_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.GoImpl <em>Go</em>}' class.
@@ -223,7 +214,7 @@ public interface DemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GO__NOMBRE = INST__NOMBRE;
+  int GO__NOMBRE = INST_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Go</em>' class.
@@ -232,7 +223,7 @@ public interface DemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GO_FEATURE_COUNT = INST_FEATURE_COUNT + 0;
+  int GO_FEATURE_COUNT = INST_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.TurnImpl <em>Turn</em>}' class.
@@ -251,7 +242,7 @@ public interface DemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TURN__NOMBRE = INST__NOMBRE;
+  int TURN__NOMBRE = INST_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Turn</em>' class.
@@ -260,7 +251,7 @@ public interface DemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TURN_FEATURE_COUNT = INST_FEATURE_COUNT + 0;
+  int TURN_FEATURE_COUNT = INST_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.TlImpl <em>Tl</em>}' class.
@@ -392,6 +383,71 @@ public interface DemoPackage extends EPackage
    */
   int FORMAL_PARAMETER_LIST_FEATURE_COUNT = 1;
 
+  /**
+   * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.ProcedureCallImpl <em>Procedure Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.demo.mydsl.demo.impl.ProcedureCallImpl
+   * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getProcedureCall()
+   * @generated
+   */
+  int PROCEDURE_CALL = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE_CALL__NAME = INST_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE_CALL__ARGUMENTS = INST_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Procedure Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE_CALL_FEATURE_COUNT = INST_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.argument_listImpl <em>argument list</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.demo.mydsl.demo.impl.argument_listImpl
+   * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getargument_list()
+   * @generated
+   */
+  int ARGUMENT_LIST = 12;
+
+  /**
+   * The feature id for the '<em><b>Argument</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_LIST__ARGUMENT = 0;
+
+  /**
+   * The number of structural features of the '<em>argument list</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_LIST_FEATURE_COUNT = 1;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.Model <em>Model</em>}'.
@@ -499,17 +555,6 @@ public interface DemoPackage extends EPackage
   EClass getInst();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.demo.mydsl.demo.Inst#getNombre <em>Nombre</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Nombre</em>'.
-   * @see org.xtext.demo.mydsl.demo.Inst#getNombre()
-   * @see #getInst()
-   * @generated
-   */
-  EAttribute getInst_Nombre();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.Go <em>Go</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -520,6 +565,17 @@ public interface DemoPackage extends EPackage
   EClass getGo();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.demo.mydsl.demo.Go#getNombre <em>Nombre</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nombre</em>'.
+   * @see org.xtext.demo.mydsl.demo.Go#getNombre()
+   * @see #getGo()
+   * @generated
+   */
+  EAttribute getGo_Nombre();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.Turn <em>Turn</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -528,6 +584,17 @@ public interface DemoPackage extends EPackage
    * @generated
    */
   EClass getTurn();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.demo.mydsl.demo.Turn#getNombre <em>Nombre</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nombre</em>'.
+   * @see org.xtext.demo.mydsl.demo.Turn#getNombre()
+   * @see #getTurn()
+   * @generated
+   */
+  EAttribute getTurn_Nombre();
 
   /**
    * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.Tl <em>Tl</em>}'.
@@ -612,6 +679,59 @@ public interface DemoPackage extends EPackage
    * @generated
    */
   EAttribute getformal_parameter_list_Parameter();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.ProcedureCall <em>Procedure Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Procedure Call</em>'.
+   * @see org.xtext.demo.mydsl.demo.ProcedureCall
+   * @generated
+   */
+  EClass getProcedureCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.demo.mydsl.demo.ProcedureCall#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.demo.mydsl.demo.ProcedureCall#getName()
+   * @see #getProcedureCall()
+   * @generated
+   */
+  EAttribute getProcedureCall_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.demo.mydsl.demo.ProcedureCall#getArguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Arguments</em>'.
+   * @see org.xtext.demo.mydsl.demo.ProcedureCall#getArguments()
+   * @see #getProcedureCall()
+   * @generated
+   */
+  EReference getProcedureCall_Arguments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.argument_list <em>argument list</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>argument list</em>'.
+   * @see org.xtext.demo.mydsl.demo.argument_list
+   * @generated
+   */
+  EClass getargument_list();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.demo.mydsl.demo.argument_list#getArgument <em>Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Argument</em>'.
+   * @see org.xtext.demo.mydsl.demo.argument_list#getArgument()
+   * @see #getargument_list()
+   * @generated
+   */
+  EAttribute getargument_list_Argument();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -727,14 +847,6 @@ public interface DemoPackage extends EPackage
     EClass INST = eINSTANCE.getInst();
 
     /**
-     * The meta object literal for the '<em><b>Nombre</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INST__NOMBRE = eINSTANCE.getInst_Nombre();
-
-    /**
      * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.GoImpl <em>Go</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -745,6 +857,14 @@ public interface DemoPackage extends EPackage
     EClass GO = eINSTANCE.getGo();
 
     /**
+     * The meta object literal for the '<em><b>Nombre</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GO__NOMBRE = eINSTANCE.getGo_Nombre();
+
+    /**
      * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.TurnImpl <em>Turn</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -753,6 +873,14 @@ public interface DemoPackage extends EPackage
      * @generated
      */
     EClass TURN = eINSTANCE.getTurn();
+
+    /**
+     * The meta object literal for the '<em><b>Nombre</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TURN__NOMBRE = eINSTANCE.getTurn_Nombre();
 
     /**
      * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.TlImpl <em>Tl</em>}' class.
@@ -825,6 +953,50 @@ public interface DemoPackage extends EPackage
      * @generated
      */
     EAttribute FORMAL_PARAMETER_LIST__PARAMETER = eINSTANCE.getformal_parameter_list_Parameter();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.ProcedureCallImpl <em>Procedure Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.demo.mydsl.demo.impl.ProcedureCallImpl
+     * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getProcedureCall()
+     * @generated
+     */
+    EClass PROCEDURE_CALL = eINSTANCE.getProcedureCall();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROCEDURE_CALL__NAME = eINSTANCE.getProcedureCall_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROCEDURE_CALL__ARGUMENTS = eINSTANCE.getProcedureCall_Arguments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.argument_listImpl <em>argument list</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.demo.mydsl.demo.impl.argument_listImpl
+     * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getargument_list()
+     * @generated
+     */
+    EClass ARGUMENT_LIST = eINSTANCE.getargument_list();
+
+    /**
+     * The meta object literal for the '<em><b>Argument</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARGUMENT_LIST__ARGUMENT = eINSTANCE.getargument_list_Argument();
 
   }
 

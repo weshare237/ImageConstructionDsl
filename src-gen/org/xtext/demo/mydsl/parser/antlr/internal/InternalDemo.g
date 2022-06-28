@@ -289,6 +289,15 @@ ruleInst returns [EObject current=null]
 			$current = $this_Turn_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getInstAccess().getProcedureCallParserRuleCall_2());
+		}
+		this_ProcedureCall_2=ruleProcedureCall
+		{
+			$current = $this_ProcedureCall_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -594,6 +603,117 @@ ruleformal_parameter_list returns [EObject current=null]
 							"org.eclipse.xtext.common.Terminals.ID");
 					}
 				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleProcedureCall
+entryRuleProcedureCall returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProcedureCallRule()); }
+	iv_ruleProcedureCall=ruleProcedureCall
+	{ $current=$iv_ruleProcedureCall.current; }
+	EOF;
+
+// Rule ProcedureCall
+ruleProcedureCall returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0=RULE_ID
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getProcedureCallAccess().getNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getProcedureCallRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProcedureCallAccess().getArgumentsArgument_listParserRuleCall_1_0());
+				}
+				lv_arguments_1_0=ruleargument_list
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProcedureCallRule());
+					}
+					set(
+						$current,
+						"arguments",
+						lv_arguments_1_0,
+						"org.xtext.demo.mydsl.Demo.argument_list");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleargument_list
+entryRuleargument_list returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getArgument_listRule()); }
+	iv_ruleargument_list=ruleargument_list
+	{ $current=$iv_ruleargument_list.current; }
+	EOF;
+
+// Rule argument_list
+ruleargument_list returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_argument_0_0=RULE_INT
+				{
+					newLeafNode(lv_argument_0_0, grammarAccess.getArgument_listAccess().getArgumentINTTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getArgument_listRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"argument",
+						lv_argument_0_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		(
+			(
+				lv_argument_1_0=RULE_INT
+				{
+					newLeafNode(lv_argument_1_0, grammarAccess.getArgument_listAccess().getArgumentINTTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getArgument_listRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"argument",
+						lv_argument_1_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
 			)
 		)*
 	)

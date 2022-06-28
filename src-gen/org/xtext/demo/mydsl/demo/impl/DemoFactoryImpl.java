@@ -76,6 +76,8 @@ public class DemoFactoryImpl extends EFactoryImpl implements DemoFactory
       case DemoPackage.TR: return createTr();
       case DemoPackage.PROCEDURE: return createProcedure();
       case DemoPackage.FORMAL_PARAMETER_LIST: return createformal_parameter_list();
+      case DemoPackage.PROCEDURE_CALL: return createProcedureCall();
+      case DemoPackage.ARGUMENT_LIST: return createargument_list();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -211,6 +213,30 @@ public class DemoFactoryImpl extends EFactoryImpl implements DemoFactory
   {
     formal_parameter_listImpl formal_parameter_list = new formal_parameter_listImpl();
     return formal_parameter_list;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ProcedureCall createProcedureCall()
+  {
+    ProcedureCallImpl procedureCall = new ProcedureCallImpl();
+    return procedureCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public argument_list createargument_list()
+  {
+    argument_listImpl argument_list = new argument_listImpl();
+    return argument_list;
   }
 
   /**

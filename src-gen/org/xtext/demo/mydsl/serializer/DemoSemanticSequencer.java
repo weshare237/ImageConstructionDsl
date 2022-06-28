@@ -19,9 +19,11 @@ import org.xtext.demo.mydsl.demo.Go;
 import org.xtext.demo.mydsl.demo.Image;
 import org.xtext.demo.mydsl.demo.Model;
 import org.xtext.demo.mydsl.demo.Procedure;
+import org.xtext.demo.mydsl.demo.ProcedureCall;
 import org.xtext.demo.mydsl.demo.Suite;
 import org.xtext.demo.mydsl.demo.Tl;
 import org.xtext.demo.mydsl.demo.Tr;
+import org.xtext.demo.mydsl.demo.argument_list;
 import org.xtext.demo.mydsl.demo.formal_parameter_list;
 import org.xtext.demo.mydsl.services.DemoGrammarAccess;
 
@@ -51,6 +53,9 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DemoPackage.PROCEDURE:
 				sequence_Procedure(context, (Procedure) semanticObject); 
 				return; 
+			case DemoPackage.PROCEDURE_CALL:
+				sequence_ProcedureCall(context, (ProcedureCall) semanticObject); 
+				return; 
 			case DemoPackage.SUITE:
 				sequence_Suite(context, (Suite) semanticObject); 
 				return; 
@@ -59,6 +64,9 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DemoPackage.TR:
 				sequence_Tr(context, (Tr) semanticObject); 
+				return; 
+			case DemoPackage.ARGUMENT_LIST:
+				sequence_argument_list(context, (argument_list) semanticObject); 
 				return; 
 			case DemoPackage.FORMAL_PARAMETER_LIST:
 				sequence_formal_parameter_list(context, (formal_parameter_list) semanticObject); 
@@ -80,8 +88,8 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Go(ISerializationContext context, Go semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DemoPackage.Literals.INST__NOMBRE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DemoPackage.Literals.INST__NOMBRE));
+			if (transientValues.isValueTransient(semanticObject, DemoPackage.Literals.GO__NOMBRE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DemoPackage.Literals.GO__NOMBRE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getGoAccess().getNombreINTTerminalRuleCall_1_0(), semanticObject.getNombre());
@@ -130,6 +138,21 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Inst returns ProcedureCall
+	 *     ProcedureCall returns ProcedureCall
+	 *
+	 * Constraint:
+	 *     (name=ID arguments=argument_list?)
+	 * </pre>
+	 */
+	protected void sequence_ProcedureCall(ISerializationContext context, ProcedureCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     AbstractElement returns Procedure
 	 *     Procedure returns Procedure
 	 *
@@ -169,8 +192,8 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Tl(ISerializationContext context, Tl semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DemoPackage.Literals.INST__NOMBRE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DemoPackage.Literals.INST__NOMBRE));
+			if (transientValues.isValueTransient(semanticObject, DemoPackage.Literals.TURN__NOMBRE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DemoPackage.Literals.TURN__NOMBRE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTlAccess().getNombreINTTerminalRuleCall_1_0(), semanticObject.getNombre());
@@ -191,12 +214,26 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Tr(ISerializationContext context, Tr semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DemoPackage.Literals.INST__NOMBRE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DemoPackage.Literals.INST__NOMBRE));
+			if (transientValues.isValueTransient(semanticObject, DemoPackage.Literals.TURN__NOMBRE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DemoPackage.Literals.TURN__NOMBRE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTrAccess().getNombreINTTerminalRuleCall_1_0(), semanticObject.getNombre());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     argument_list returns argument_list
+	 *
+	 * Constraint:
+	 *     (argument+=INT argument+=INT*)
+	 * </pre>
+	 */
+	protected void sequence_argument_list(ISerializationContext context, argument_list semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -18,10 +18,12 @@ import org.xtext.demo.mydsl.demo.Image;
 import org.xtext.demo.mydsl.demo.Inst;
 import org.xtext.demo.mydsl.demo.Model;
 import org.xtext.demo.mydsl.demo.Procedure;
+import org.xtext.demo.mydsl.demo.ProcedureCall;
 import org.xtext.demo.mydsl.demo.Suite;
 import org.xtext.demo.mydsl.demo.Tl;
 import org.xtext.demo.mydsl.demo.Tr;
 import org.xtext.demo.mydsl.demo.Turn;
+import org.xtext.demo.mydsl.demo.argument_list;
 import org.xtext.demo.mydsl.demo.formal_parameter_list;
 
 /**
@@ -108,6 +110,20 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
    * @generated
    */
   private EClass formal_parameter_listEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass procedureCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass argument_listEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -288,17 +304,6 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
    * @generated
    */
   @Override
-  public EAttribute getInst_Nombre()
-  {
-    return (EAttribute)instEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getGo()
   {
     return goEClass;
@@ -310,9 +315,31 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
    * @generated
    */
   @Override
+  public EAttribute getGo_Nombre()
+  {
+    return (EAttribute)goEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getTurn()
   {
     return turnEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTurn_Nombre()
+  {
+    return (EAttribute)turnEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -409,6 +436,61 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
    * @generated
    */
   @Override
+  public EClass getProcedureCall()
+  {
+    return procedureCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getProcedureCall_Name()
+  {
+    return (EAttribute)procedureCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getProcedureCall_Arguments()
+  {
+    return (EReference)procedureCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getargument_list()
+  {
+    return argument_listEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getargument_list_Argument()
+  {
+    return (EAttribute)argument_listEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public DemoFactory getDemoFactory()
   {
     return (DemoFactory)getEFactoryInstance();
@@ -448,11 +530,12 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
     createEReference(suiteEClass, SUITE__SUITE_INST);
 
     instEClass = createEClass(INST);
-    createEAttribute(instEClass, INST__NOMBRE);
 
     goEClass = createEClass(GO);
+    createEAttribute(goEClass, GO__NOMBRE);
 
     turnEClass = createEClass(TURN);
+    createEAttribute(turnEClass, TURN__NOMBRE);
 
     tlEClass = createEClass(TL);
 
@@ -465,6 +548,13 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
 
     formal_parameter_listEClass = createEClass(FORMAL_PARAMETER_LIST);
     createEAttribute(formal_parameter_listEClass, FORMAL_PARAMETER_LIST__PARAMETER);
+
+    procedureCallEClass = createEClass(PROCEDURE_CALL);
+    createEAttribute(procedureCallEClass, PROCEDURE_CALL__NAME);
+    createEReference(procedureCallEClass, PROCEDURE_CALL__ARGUMENTS);
+
+    argument_listEClass = createEClass(ARGUMENT_LIST);
+    createEAttribute(argument_listEClass, ARGUMENT_LIST__ARGUMENT);
   }
 
   /**
@@ -502,6 +592,7 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
     tlEClass.getESuperTypes().add(this.getTurn());
     trEClass.getESuperTypes().add(this.getTurn());
     procedureEClass.getESuperTypes().add(this.getAbstractElement());
+    procedureCallEClass.getESuperTypes().add(this.getInst());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -518,11 +609,12 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
     initEReference(getSuite_Suite_inst(), this.getSuite(), null, "suite_inst", null, 0, 1, Suite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(instEClass, Inst.class, "Inst", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInst_Nombre(), ecorePackage.getEInt(), "nombre", null, 0, 1, Inst.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(goEClass, Go.class, "Go", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGo_Nombre(), ecorePackage.getEInt(), "nombre", null, 0, 1, Go.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(turnEClass, Turn.class, "Turn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTurn_Nombre(), ecorePackage.getEInt(), "nombre", null, 0, 1, Turn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(tlEClass, Tl.class, "Tl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -535,6 +627,13 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
 
     initEClass(formal_parameter_listEClass, formal_parameter_list.class, "formal_parameter_list", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getformal_parameter_list_Parameter(), ecorePackage.getEString(), "parameter", null, 0, -1, formal_parameter_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(procedureCallEClass, ProcedureCall.class, "ProcedureCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProcedureCall_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProcedureCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcedureCall_Arguments(), this.getargument_list(), null, "arguments", null, 0, 1, ProcedureCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(argument_listEClass, argument_list.class, "argument_list", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getargument_list_Argument(), ecorePackage.getEInt(), "argument", null, 0, -1, argument_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

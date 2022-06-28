@@ -125,12 +125,13 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cGoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTurnParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cProcedureCallParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Inst:
-		//    Go | Turn;
+		//    Go | Turn | ProcedureCall;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Go | Turn
+		//Go | Turn | ProcedureCall
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Go
@@ -138,6 +139,9 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//Turn
 		public RuleCall getTurnParserRuleCall_1() { return cTurnParserRuleCall_1; }
+		
+		//ProcedureCall
+		public RuleCall getProcedureCallParserRuleCall_2() { return cProcedureCallParserRuleCall_2; }
 	}
 	public class GoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.demo.mydsl.Demo.Go");
@@ -314,6 +318,60 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//ID
 		public RuleCall getParameterIDTerminalRuleCall_2_1_0() { return cParameterIDTerminalRuleCall_2_1_0; }
 	}
+	public class ProcedureCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.demo.mydsl.Demo.ProcedureCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Assignment cArgumentsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cArgumentsArgument_listParserRuleCall_1_0 = (RuleCall)cArgumentsAssignment_1.eContents().get(0);
+		
+		//ProcedureCall:
+		//    name=ID arguments=argument_list ? ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID arguments=argument_list ?
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//arguments=argument_list ?
+		public Assignment getArgumentsAssignment_1() { return cArgumentsAssignment_1; }
+		
+		//argument_list
+		public RuleCall getArgumentsArgument_listParserRuleCall_1_0() { return cArgumentsArgument_listParserRuleCall_1_0; }
+	}
+	public class Argument_listElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.demo.mydsl.Demo.argument_list");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cArgumentAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cArgumentINTTerminalRuleCall_0_0 = (RuleCall)cArgumentAssignment_0.eContents().get(0);
+		private final Assignment cArgumentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cArgumentINTTerminalRuleCall_1_0 = (RuleCall)cArgumentAssignment_1.eContents().get(0);
+		
+		//argument_list:
+		//    argument+=INT ( argument+=INT ) * ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//argument+=INT ( argument+=INT ) *
+		public Group getGroup() { return cGroup; }
+		
+		//argument+=INT
+		public Assignment getArgumentAssignment_0() { return cArgumentAssignment_0; }
+		
+		//INT
+		public RuleCall getArgumentINTTerminalRuleCall_0_0() { return cArgumentINTTerminalRuleCall_0_0; }
+		
+		//( argument+=INT ) *
+		public Assignment getArgumentAssignment_1() { return cArgumentAssignment_1; }
+		
+		//INT
+		public RuleCall getArgumentINTTerminalRuleCall_1_0() { return cArgumentINTTerminalRuleCall_1_0; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -327,6 +385,8 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final TrElements pTr;
 	private final ProcedureElements pProcedure;
 	private final Formal_parameter_listElements pFormal_parameter_list;
+	private final ProcedureCallElements pProcedureCall;
+	private final Argument_listElements pArgument_list;
 	
 	private final Grammar grammar;
 	
@@ -348,6 +408,8 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pTr = new TrElements();
 		this.pProcedure = new ProcedureElements();
 		this.pFormal_parameter_list = new Formal_parameter_listElements();
+		this.pProcedureCall = new ProcedureCallElements();
+		this.pArgument_list = new Argument_listElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -419,7 +481,7 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Inst:
-	//    Go | Turn;
+	//    Go | Turn | ProcedureCall;
 	public InstElements getInstAccess() {
 		return pInst;
 	}
@@ -489,6 +551,26 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getFormal_parameter_listRule() {
 		return getFormal_parameter_listAccess().getRule();
+	}
+	
+	//ProcedureCall:
+	//    name=ID arguments=argument_list ? ;
+	public ProcedureCallElements getProcedureCallAccess() {
+		return pProcedureCall;
+	}
+	
+	public ParserRule getProcedureCallRule() {
+		return getProcedureCallAccess().getRule();
+	}
+	
+	//argument_list:
+	//    argument+=INT ( argument+=INT ) * ;
+	public Argument_listElements getArgument_listAccess() {
+		return pArgument_list;
+	}
+	
+	public ParserRule getArgument_listRule() {
+		return getArgument_listAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

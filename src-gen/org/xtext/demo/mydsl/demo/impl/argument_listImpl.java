@@ -3,56 +3,50 @@
  */
 package org.xtext.demo.mydsl.demo.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.demo.mydsl.demo.DemoPackage;
-import org.xtext.demo.mydsl.demo.Go;
+import org.xtext.demo.mydsl.demo.argument_list;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Go</b></em>'.
+ * An implementation of the model object '<em><b>argument list</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.demo.mydsl.demo.impl.GoImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.demo.mydsl.demo.impl.argument_listImpl#getArgument <em>Argument</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GoImpl extends InstImpl implements Go
+public class argument_listImpl extends MinimalEObjectImpl.Container implements argument_list
 {
   /**
-   * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
+   * The cached value of the '{@link #getArgument() <em>Argument</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNombre()
+   * @see #getArgument()
    * @generated
    * @ordered
    */
-  protected static final int NOMBRE_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNombre()
-   * @generated
-   * @ordered
-   */
-  protected int nombre = NOMBRE_EDEFAULT;
+  protected EList<Integer> argument;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GoImpl()
+  protected argument_listImpl()
   {
     super();
   }
@@ -65,7 +59,7 @@ public class GoImpl extends InstImpl implements Go
   @Override
   protected EClass eStaticClass()
   {
-    return DemoPackage.Literals.GO;
+    return DemoPackage.Literals.ARGUMENT_LIST;
   }
 
   /**
@@ -74,23 +68,13 @@ public class GoImpl extends InstImpl implements Go
    * @generated
    */
   @Override
-  public int getNombre()
+  public EList<Integer> getArgument()
   {
-    return nombre;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setNombre(int newNombre)
-  {
-    int oldNombre = nombre;
-    nombre = newNombre;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DemoPackage.GO__NOMBRE, oldNombre, nombre));
+    if (argument == null)
+    {
+      argument = new EDataTypeEList<Integer>(Integer.class, this, DemoPackage.ARGUMENT_LIST__ARGUMENT);
+    }
+    return argument;
   }
 
   /**
@@ -103,8 +87,8 @@ public class GoImpl extends InstImpl implements Go
   {
     switch (featureID)
     {
-      case DemoPackage.GO__NOMBRE:
-        return getNombre();
+      case DemoPackage.ARGUMENT_LIST__ARGUMENT:
+        return getArgument();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -114,13 +98,15 @@ public class GoImpl extends InstImpl implements Go
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case DemoPackage.GO__NOMBRE:
-        setNombre((Integer)newValue);
+      case DemoPackage.ARGUMENT_LIST__ARGUMENT:
+        getArgument().clear();
+        getArgument().addAll((Collection<? extends Integer>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +122,8 @@ public class GoImpl extends InstImpl implements Go
   {
     switch (featureID)
     {
-      case DemoPackage.GO__NOMBRE:
-        setNombre(NOMBRE_EDEFAULT);
+      case DemoPackage.ARGUMENT_LIST__ARGUMENT:
+        getArgument().clear();
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +139,8 @@ public class GoImpl extends InstImpl implements Go
   {
     switch (featureID)
     {
-      case DemoPackage.GO__NOMBRE:
-        return nombre != NOMBRE_EDEFAULT;
+      case DemoPackage.ARGUMENT_LIST__ARGUMENT:
+        return argument != null && !argument.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +156,10 @@ public class GoImpl extends InstImpl implements Go
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (nombre: ");
-    result.append(nombre);
+    result.append(" (argument: ");
+    result.append(argument);
     result.append(')');
     return result.toString();
   }
 
-} //GoImpl
+} //argument_listImpl

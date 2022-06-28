@@ -18,11 +18,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="suite_inst" eType="#//Suite"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Inst">
+  <eClassifiers xsi:type="ecore:EClass" name="Inst"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Go" eSuperTypes="#//Inst">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Go" eSuperTypes="#//Inst"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Turn" eSuperTypes="#//Inst"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Turn" eSuperTypes="#//Inst">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tl" eSuperTypes="#//Turn"/>
   <eClassifiers xsi:type="ecore:EClass" name="Tr" eSuperTypes="#//Turn"/>
   <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="#//AbstractElement">
@@ -35,5 +37,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="formal_parameter_list">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcedureCall" eSuperTypes="#//Inst">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" eType="#//argument_list"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="argument_list">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="argument" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
 </ecore:EPackage>

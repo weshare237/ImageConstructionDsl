@@ -18,11 +18,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Demo.ecore#//Suite/instruction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Demo.ecore#//Suite/suite_inst"/>
     </genClasses>
-    <genClasses ecoreClass="Demo.ecore#//Inst">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Demo.ecore#//Inst/nombre"/>
+    <genClasses ecoreClass="Demo.ecore#//Inst"/>
+    <genClasses ecoreClass="Demo.ecore#//Go">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Demo.ecore#//Go/nombre"/>
     </genClasses>
-    <genClasses ecoreClass="Demo.ecore#//Go"/>
-    <genClasses ecoreClass="Demo.ecore#//Turn"/>
+    <genClasses ecoreClass="Demo.ecore#//Turn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Demo.ecore#//Turn/nombre"/>
+    </genClasses>
     <genClasses ecoreClass="Demo.ecore#//Tl"/>
     <genClasses ecoreClass="Demo.ecore#//Tr"/>
     <genClasses ecoreClass="Demo.ecore#//Procedure">
@@ -32,6 +34,13 @@
     </genClasses>
     <genClasses ecoreClass="Demo.ecore#//formal_parameter_list">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Demo.ecore#//formal_parameter_list/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="Demo.ecore#//ProcedureCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Demo.ecore#//ProcedureCall/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Demo.ecore#//ProcedureCall/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="Demo.ecore#//argument_list">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Demo.ecore#//argument_list/argument"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

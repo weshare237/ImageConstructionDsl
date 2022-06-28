@@ -158,6 +158,21 @@ public class DemoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DemoPackage.PROCEDURE_CALL:
+      {
+        ProcedureCall procedureCall = (ProcedureCall)theEObject;
+        T result = caseProcedureCall(procedureCall);
+        if (result == null) result = caseInst(procedureCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DemoPackage.ARGUMENT_LIST:
+      {
+        argument_list argument_list = (argument_list)theEObject;
+        T result = caseargument_list(argument_list);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -334,6 +349,38 @@ public class DemoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseformal_parameter_list(formal_parameter_list object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Procedure Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Procedure Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcedureCall(ProcedureCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>argument list</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>argument list</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseargument_list(argument_list object)
   {
     return null;
   }

@@ -17,7 +17,7 @@ Suite:
 	instruction=Inst suite_inst=Suite | {Suite};
 	
 Inst: 
-	Go | Turn;
+	Go | Turn | ProcedureCall;
 
 Go: 
 	'avancer' nombre=INT;
@@ -39,3 +39,9 @@ Procedure:
 formal_parameter_list:
 	':' parameter+=ID ( ":" parameter+=ID ) * 	
 ;
+
+ProcedureCall: 
+	name=ID arguments=argument_list ? ;
+	
+argument_list:
+	argument+=INT ( argument+=INT ) * ;

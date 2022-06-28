@@ -123,6 +123,24 @@ public interface DemoFactory extends EFactory
   formal_parameter_list createformal_parameter_list();
 
   /**
+   * Returns a new object of class '<em>Procedure Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Procedure Call</em>'.
+   * @generated
+   */
+  ProcedureCall createProcedureCall();
+
+  /**
+   * Returns a new object of class '<em>argument list</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>argument list</em>'.
+   * @generated
+   */
+  argument_list createargument_list();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

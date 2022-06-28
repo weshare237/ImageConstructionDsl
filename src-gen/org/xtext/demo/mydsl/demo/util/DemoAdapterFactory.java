@@ -131,6 +131,16 @@ public class DemoAdapterFactory extends AdapterFactoryImpl
         return createformal_parameter_listAdapter();
       }
       @Override
+      public Adapter caseProcedureCall(ProcedureCall object)
+      {
+        return createProcedureCallAdapter();
+      }
+      @Override
+      public Adapter caseargument_list(argument_list object)
+      {
+        return createargument_listAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -313,6 +323,36 @@ public class DemoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createformal_parameter_listAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.demo.mydsl.demo.ProcedureCall <em>Procedure Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.demo.mydsl.demo.ProcedureCall
+   * @generated
+   */
+  public Adapter createProcedureCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.demo.mydsl.demo.argument_list <em>argument list</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.demo.mydsl.demo.argument_list
+   * @generated
+   */
+  public Adapter createargument_listAdapter()
   {
     return null;
   }
