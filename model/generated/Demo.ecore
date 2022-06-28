@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="demo" nsURI="http://www.xtext.org/demo/mydsl/Demo" nsPrefix="demo">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Image" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Image">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instruction" eType="#//Inst"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="suite_inst" eType="#//Suite"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Suite">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instruction" eType="#//Inst"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="suite_inst" eType="#//Suite"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Inst">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Go" eSuperTypes="#//Inst"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Turn" eSuperTypes="#//Inst"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tl" eSuperTypes="#//Turn"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tr" eSuperTypes="#//Turn"/>
+</ecore:EPackage>

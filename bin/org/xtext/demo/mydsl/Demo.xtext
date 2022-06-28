@@ -1,0 +1,27 @@
+grammar org.xtext.demo.mydsl.Demo with org.eclipse.xtext.common.Terminals
+
+generate demo "http://www.xtext.org/demo/mydsl/Demo"
+
+Model:
+	elements+=Image* ;
+
+Image: 
+	instruction=Inst suite_inst=Suite;
+
+Suite: 
+	instruction=Inst suite_inst=Suite | {Suite};
+	
+Inst: 
+	Go | Turn;
+
+Go: 
+	'avancer' nombre=INT;
+
+Turn: 
+	Tl | Tr;
+	
+Tl:
+	'gauche' nombre=INT;
+
+Tr: 
+	'droit' nombre=INT;
