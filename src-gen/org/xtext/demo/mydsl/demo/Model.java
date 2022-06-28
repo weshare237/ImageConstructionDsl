@@ -27,7 +27,7 @@ public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.demo.mydsl.demo.Image}.
+   * The list contents are of type {@link org.xtext.demo.mydsl.demo.AbstractElement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' containment reference list.
@@ -35,6 +35,6 @@ public interface Model extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Image> getElements();
+  EList<AbstractElement> getElements();
 
 } // Model

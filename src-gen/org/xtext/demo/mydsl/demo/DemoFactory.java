@@ -33,6 +33,15 @@ public interface DemoFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Abstract Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Element</em>'.
+   * @generated
+   */
+  AbstractElement createAbstractElement();
+
+  /**
    * Returns a new object of class '<em>Image</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +103,24 @@ public interface DemoFactory extends EFactory
    * @generated
    */
   Tr createTr();
+
+  /**
+   * Returns a new object of class '<em>Procedure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Procedure</em>'.
+   * @generated
+   */
+  Procedure createProcedure();
+
+  /**
+   * Returns a new object of class '<em>formal parameter list</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>formal parameter list</em>'.
+   * @generated
+   */
+  formal_parameter_list createformal_parameter_list();
 
   /**
    * Returns the package supported by this factory.

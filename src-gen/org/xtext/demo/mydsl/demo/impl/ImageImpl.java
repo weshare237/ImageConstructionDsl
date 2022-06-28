@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.demo.mydsl.demo.DemoPackage;
 import org.xtext.demo.mydsl.demo.Image;
@@ -31,7 +30,7 @@ import org.xtext.demo.mydsl.demo.Suite;
  *
  * @generated
  */
-public class ImageImpl extends MinimalEObjectImpl.Container implements Image
+public class ImageImpl extends AbstractElementImpl implements Image
 {
   /**
    * The cached value of the '{@link #getInstruction() <em>Instruction</em>}' containment reference.

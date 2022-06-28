@@ -9,6 +9,7 @@
     <genClasses ecoreClass="Demo.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Demo.ecore#//Model/elements"/>
     </genClasses>
+    <genClasses ecoreClass="Demo.ecore#//AbstractElement"/>
     <genClasses ecoreClass="Demo.ecore#//Image">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Demo.ecore#//Image/instruction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Demo.ecore#//Image/suite_inst"/>
@@ -24,5 +25,13 @@
     <genClasses ecoreClass="Demo.ecore#//Turn"/>
     <genClasses ecoreClass="Demo.ecore#//Tl"/>
     <genClasses ecoreClass="Demo.ecore#//Tr"/>
+    <genClasses ecoreClass="Demo.ecore#//Procedure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Demo.ecore#//Procedure/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Demo.ecore#//Procedure/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Demo.ecore#//Procedure/image"/>
+    </genClasses>
+    <genClasses ecoreClass="Demo.ecore#//formal_parameter_list">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Demo.ecore#//formal_parameter_list/parameter"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

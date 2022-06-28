@@ -80,10 +80,18 @@ public class DemoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DemoPackage.ABSTRACT_ELEMENT:
+      {
+        AbstractElement abstractElement = (AbstractElement)theEObject;
+        T result = caseAbstractElement(abstractElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DemoPackage.IMAGE:
       {
         Image image = (Image)theEObject;
         T result = caseImage(image);
+        if (result == null) result = caseAbstractElement(image);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -135,6 +143,21 @@ public class DemoSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DemoPackage.PROCEDURE:
+      {
+        Procedure procedure = (Procedure)theEObject;
+        T result = caseProcedure(procedure);
+        if (result == null) result = caseAbstractElement(procedure);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DemoPackage.FORMAL_PARAMETER_LIST:
+      {
+        formal_parameter_list formal_parameter_list = (formal_parameter_list)theEObject;
+        T result = caseformal_parameter_list(formal_parameter_list);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -151,6 +174,22 @@ public class DemoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractElement(AbstractElement object)
   {
     return null;
   }
@@ -263,6 +302,38 @@ public class DemoSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTr(Tr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Procedure</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Procedure</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcedure(Procedure object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>formal parameter list</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>formal parameter list</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseformal_parameter_list(formal_parameter_list object)
   {
     return null;
   }

@@ -10,16 +10,19 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.demo.mydsl.demo.AbstractElement;
 import org.xtext.demo.mydsl.demo.DemoFactory;
 import org.xtext.demo.mydsl.demo.DemoPackage;
 import org.xtext.demo.mydsl.demo.Go;
 import org.xtext.demo.mydsl.demo.Image;
 import org.xtext.demo.mydsl.demo.Inst;
 import org.xtext.demo.mydsl.demo.Model;
+import org.xtext.demo.mydsl.demo.Procedure;
 import org.xtext.demo.mydsl.demo.Suite;
 import org.xtext.demo.mydsl.demo.Tl;
 import org.xtext.demo.mydsl.demo.Tr;
 import org.xtext.demo.mydsl.demo.Turn;
+import org.xtext.demo.mydsl.demo.formal_parameter_list;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +38,13 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
    * @generated
    */
   private EClass modelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,6 +94,20 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
    * @generated
    */
   private EClass trEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass procedureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass formal_parameter_listEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -168,6 +192,17 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
   public EReference getModel_Elements()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAbstractElement()
+  {
+    return abstractElementEClass;
   }
 
   /**
@@ -308,6 +343,72 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
    * @generated
    */
   @Override
+  public EClass getProcedure()
+  {
+    return procedureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getProcedure_Name()
+  {
+    return (EAttribute)procedureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getProcedure_Parameters()
+  {
+    return (EReference)procedureEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getProcedure_Image()
+  {
+    return (EReference)procedureEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getformal_parameter_list()
+  {
+    return formal_parameter_listEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getformal_parameter_list_Parameter()
+  {
+    return (EAttribute)formal_parameter_listEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public DemoFactory getDemoFactory()
   {
     return (DemoFactory)getEFactoryInstance();
@@ -336,6 +437,8 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__ELEMENTS);
 
+    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
+
     imageEClass = createEClass(IMAGE);
     createEReference(imageEClass, IMAGE__INSTRUCTION);
     createEReference(imageEClass, IMAGE__SUITE_INST);
@@ -354,6 +457,14 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
     tlEClass = createEClass(TL);
 
     trEClass = createEClass(TR);
+
+    procedureEClass = createEClass(PROCEDURE);
+    createEAttribute(procedureEClass, PROCEDURE__NAME);
+    createEReference(procedureEClass, PROCEDURE__PARAMETERS);
+    createEReference(procedureEClass, PROCEDURE__IMAGE);
+
+    formal_parameter_listEClass = createEClass(FORMAL_PARAMETER_LIST);
+    createEAttribute(formal_parameter_listEClass, FORMAL_PARAMETER_LIST__PARAMETER);
   }
 
   /**
@@ -385,14 +496,18 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    imageEClass.getESuperTypes().add(this.getAbstractElement());
     goEClass.getESuperTypes().add(this.getInst());
     turnEClass.getESuperTypes().add(this.getInst());
     tlEClass.getESuperTypes().add(this.getTurn());
     trEClass.getESuperTypes().add(this.getTurn());
+    procedureEClass.getESuperTypes().add(this.getAbstractElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Elements(), this.getImage(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getImage_Instruction(), this.getInst(), null, "instruction", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -412,6 +527,14 @@ public class DemoPackageImpl extends EPackageImpl implements DemoPackage
     initEClass(tlEClass, Tl.class, "Tl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(trEClass, Tr.class, "Tr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(procedureEClass, Procedure.class, "Procedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProcedure_Name(), ecorePackage.getEString(), "name", null, 0, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcedure_Parameters(), this.getformal_parameter_list(), null, "parameters", null, 0, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcedure_Image(), this.getImage(), null, "image", null, 0, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(formal_parameter_listEClass, formal_parameter_list.class, "formal_parameter_list", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getformal_parameter_list_Parameter(), ecorePackage.getEString(), "parameter", null, 0, -1, formal_parameter_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

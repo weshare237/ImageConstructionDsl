@@ -3,7 +3,12 @@ grammar org.xtext.demo.mydsl.Demo with org.eclipse.xtext.common.Terminals
 generate demo "http://www.xtext.org/demo/mydsl/Demo"
 
 Model:
-	elements+=Image* ;
+	elements+=AbstractElement* ;
+
+AbstractElement: 
+	Image | Procedure
+;
+
 
 Image: 
 	instruction=Inst suite_inst=Suite;
@@ -25,3 +30,12 @@ Tl:
 
 Tr: 
 	'droit' nombre=INT;
+	
+Procedure: 
+	'procedure' name=ID ( parameters=formal_parameter_list ) ?	
+		image=Image
+	'finProcedure';
+	
+formal_parameter_list:
+	':' parameter+=ID ( ":" parameter+=ID ) * 	
+;

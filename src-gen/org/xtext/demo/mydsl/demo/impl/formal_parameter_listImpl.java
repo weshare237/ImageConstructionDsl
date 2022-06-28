@@ -5,53 +5,48 @@ package org.xtext.demo.mydsl.demo.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xtext.demo.mydsl.demo.AbstractElement;
 import org.xtext.demo.mydsl.demo.DemoPackage;
-import org.xtext.demo.mydsl.demo.Model;
+import org.xtext.demo.mydsl.demo.formal_parameter_list;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>formal parameter list</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.demo.mydsl.demo.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xtext.demo.mydsl.demo.impl.formal_parameter_listImpl#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class formal_parameter_listImpl extends MinimalEObjectImpl.Container implements formal_parameter_list
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getParameter() <em>Parameter</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getParameter()
    * @generated
    * @ordered
    */
-  protected EList<AbstractElement> elements;
+  protected EList<String> parameter;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected formal_parameter_listImpl()
   {
     super();
   }
@@ -64,7 +59,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return DemoPackage.Literals.MODEL;
+    return DemoPackage.Literals.FORMAL_PARAMETER_LIST;
   }
 
   /**
@@ -73,29 +68,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<AbstractElement> getElements()
+  public EList<String> getParameter()
   {
-    if (elements == null)
+    if (parameter == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, DemoPackage.MODEL__ELEMENTS);
+      parameter = new EDataTypeEList<String>(String.class, this, DemoPackage.FORMAL_PARAMETER_LIST__PARAMETER);
     }
-    return elements;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DemoPackage.MODEL__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return parameter;
   }
 
   /**
@@ -108,8 +87,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DemoPackage.MODEL__ELEMENTS:
-        return getElements();
+      case DemoPackage.FORMAL_PARAMETER_LIST__PARAMETER:
+        return getParameter();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +104,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DemoPackage.MODEL__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+      case DemoPackage.FORMAL_PARAMETER_LIST__PARAMETER:
+        getParameter().clear();
+        getParameter().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +122,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DemoPackage.MODEL__ELEMENTS:
-        getElements().clear();
+      case DemoPackage.FORMAL_PARAMETER_LIST__PARAMETER:
+        getParameter().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,10 +139,27 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DemoPackage.MODEL__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case DemoPackage.FORMAL_PARAMETER_LIST__PARAMETER:
+        return parameter != null && !parameter.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (parameter: ");
+    result.append(parameter);
+    result.append(')');
+    return result.toString();
+  }
+
+} //formal_parameter_listImpl

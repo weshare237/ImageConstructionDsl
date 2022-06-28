@@ -3,9 +3,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="demo" nsURI="http://www.xtext.org/demo/mydsl/Demo" nsPrefix="demo">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//Image" containment="true"/>
+        eType="#//AbstractElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Image">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//AbstractElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="instruction" eType="#//Inst"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="suite_inst" eType="#//Suite"
@@ -24,4 +25,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Turn" eSuperTypes="#//Inst"/>
   <eClassifiers xsi:type="ecore:EClass" name="Tl" eSuperTypes="#//Turn"/>
   <eClassifiers xsi:type="ecore:EClass" name="Tr" eSuperTypes="#//Turn"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="#//AbstractElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//formal_parameter_list"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//Image"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="formal_parameter_list">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

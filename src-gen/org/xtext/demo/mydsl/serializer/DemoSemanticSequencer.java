@@ -18,9 +18,11 @@ import org.xtext.demo.mydsl.demo.DemoPackage;
 import org.xtext.demo.mydsl.demo.Go;
 import org.xtext.demo.mydsl.demo.Image;
 import org.xtext.demo.mydsl.demo.Model;
+import org.xtext.demo.mydsl.demo.Procedure;
 import org.xtext.demo.mydsl.demo.Suite;
 import org.xtext.demo.mydsl.demo.Tl;
 import org.xtext.demo.mydsl.demo.Tr;
+import org.xtext.demo.mydsl.demo.formal_parameter_list;
 import org.xtext.demo.mydsl.services.DemoGrammarAccess;
 
 @SuppressWarnings("all")
@@ -46,6 +48,9 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DemoPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
+			case DemoPackage.PROCEDURE:
+				sequence_Procedure(context, (Procedure) semanticObject); 
+				return; 
 			case DemoPackage.SUITE:
 				sequence_Suite(context, (Suite) semanticObject); 
 				return; 
@@ -54,6 +59,9 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DemoPackage.TR:
 				sequence_Tr(context, (Tr) semanticObject); 
+				return; 
+			case DemoPackage.FORMAL_PARAMETER_LIST:
+				sequence_formal_parameter_list(context, (formal_parameter_list) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -84,6 +92,7 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     AbstractElement returns Image
 	 *     Image returns Image
 	 *
 	 * Constraint:
@@ -110,10 +119,25 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     elements+=Image+
+	 *     elements+=AbstractElement+
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     AbstractElement returns Procedure
+	 *     Procedure returns Procedure
+	 *
+	 * Constraint:
+	 *     (name=ID parameters=formal_parameter_list? image=Image)
+	 * </pre>
+	 */
+	protected void sequence_Procedure(ISerializationContext context, Procedure semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -173,6 +197,20 @@ public class DemoSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTrAccess().getNombreINTTerminalRuleCall_1_0(), semanticObject.getNombre());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     formal_parameter_list returns formal_parameter_list
+	 *
+	 * Constraint:
+	 *     (parameter+=ID parameter+=ID*)
+	 * </pre>
+	 */
+	protected void sequence_formal_parameter_list(ISerializationContext context, formal_parameter_list semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

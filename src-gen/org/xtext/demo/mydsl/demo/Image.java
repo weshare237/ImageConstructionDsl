@@ -3,7 +3,6 @@
  */
 package org.xtext.demo.mydsl.demo;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Image extends EObject
+public interface Image extends AbstractElement
 {
   /**
    * Returns the value of the '<em><b>Instruction</b></em>' containment reference.

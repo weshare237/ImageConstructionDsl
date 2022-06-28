@@ -86,6 +86,25 @@ public interface DemoPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.demo.mydsl.demo.impl.AbstractElementImpl
+   * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getAbstractElement()
+   * @generated
+   */
+  int ABSTRACT_ELEMENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Abstract Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.ImageImpl <em>Image</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,7 +112,7 @@ public interface DemoPackage extends EPackage
    * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getImage()
    * @generated
    */
-  int IMAGE = 1;
+  int IMAGE = 2;
 
   /**
    * The feature id for the '<em><b>Instruction</b></em>' containment reference.
@@ -102,7 +121,7 @@ public interface DemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IMAGE__INSTRUCTION = 0;
+  int IMAGE__INSTRUCTION = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Suite inst</b></em>' containment reference.
@@ -111,7 +130,7 @@ public interface DemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IMAGE__SUITE_INST = 1;
+  int IMAGE__SUITE_INST = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Image</em>' class.
@@ -120,7 +139,7 @@ public interface DemoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IMAGE_FEATURE_COUNT = 2;
+  int IMAGE_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.SuiteImpl <em>Suite</em>}' class.
@@ -130,7 +149,7 @@ public interface DemoPackage extends EPackage
    * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getSuite()
    * @generated
    */
-  int SUITE = 2;
+  int SUITE = 3;
 
   /**
    * The feature id for the '<em><b>Instruction</b></em>' containment reference.
@@ -167,7 +186,7 @@ public interface DemoPackage extends EPackage
    * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getInst()
    * @generated
    */
-  int INST = 3;
+  int INST = 4;
 
   /**
    * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -195,7 +214,7 @@ public interface DemoPackage extends EPackage
    * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getGo()
    * @generated
    */
-  int GO = 4;
+  int GO = 5;
 
   /**
    * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -223,7 +242,7 @@ public interface DemoPackage extends EPackage
    * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getTurn()
    * @generated
    */
-  int TURN = 5;
+  int TURN = 6;
 
   /**
    * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -251,7 +270,7 @@ public interface DemoPackage extends EPackage
    * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getTl()
    * @generated
    */
-  int TL = 6;
+  int TL = 7;
 
   /**
    * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -279,7 +298,7 @@ public interface DemoPackage extends EPackage
    * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getTr()
    * @generated
    */
-  int TR = 7;
+  int TR = 8;
 
   /**
    * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -298,6 +317,80 @@ public interface DemoPackage extends EPackage
    * @ordered
    */
   int TR_FEATURE_COUNT = TURN_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.ProcedureImpl <em>Procedure</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.demo.mydsl.demo.impl.ProcedureImpl
+   * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getProcedure()
+   * @generated
+   */
+  int PROCEDURE = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__PARAMETERS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Image</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__IMAGE = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Procedure</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.demo.mydsl.demo.impl.formal_parameter_listImpl <em>formal parameter list</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.demo.mydsl.demo.impl.formal_parameter_listImpl
+   * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getformal_parameter_list()
+   * @generated
+   */
+  int FORMAL_PARAMETER_LIST = 10;
+
+  /**
+   * The feature id for the '<em><b>Parameter</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORMAL_PARAMETER_LIST__PARAMETER = 0;
+
+  /**
+   * The number of structural features of the '<em>formal parameter list</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORMAL_PARAMETER_LIST_FEATURE_COUNT = 1;
 
 
   /**
@@ -320,6 +413,16 @@ public interface DemoPackage extends EPackage
    * @generated
    */
   EReference getModel_Elements();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.AbstractElement <em>Abstract Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Abstract Element</em>'.
+   * @see org.xtext.demo.mydsl.demo.AbstractElement
+   * @generated
+   */
+  EClass getAbstractElement();
 
   /**
    * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.Image <em>Image</em>}'.
@@ -447,6 +550,70 @@ public interface DemoPackage extends EPackage
   EClass getTr();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.Procedure <em>Procedure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Procedure</em>'.
+   * @see org.xtext.demo.mydsl.demo.Procedure
+   * @generated
+   */
+  EClass getProcedure();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.demo.mydsl.demo.Procedure#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.demo.mydsl.demo.Procedure#getName()
+   * @see #getProcedure()
+   * @generated
+   */
+  EAttribute getProcedure_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.demo.mydsl.demo.Procedure#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameters</em>'.
+   * @see org.xtext.demo.mydsl.demo.Procedure#getParameters()
+   * @see #getProcedure()
+   * @generated
+   */
+  EReference getProcedure_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.demo.mydsl.demo.Procedure#getImage <em>Image</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Image</em>'.
+   * @see org.xtext.demo.mydsl.demo.Procedure#getImage()
+   * @see #getProcedure()
+   * @generated
+   */
+  EReference getProcedure_Image();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.demo.mydsl.demo.formal_parameter_list <em>formal parameter list</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>formal parameter list</em>'.
+   * @see org.xtext.demo.mydsl.demo.formal_parameter_list
+   * @generated
+   */
+  EClass getformal_parameter_list();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.demo.mydsl.demo.formal_parameter_list#getParameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Parameter</em>'.
+   * @see org.xtext.demo.mydsl.demo.formal_parameter_list#getParameter()
+   * @see #getformal_parameter_list()
+   * @generated
+   */
+  EAttribute getformal_parameter_list_Parameter();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -486,6 +653,16 @@ public interface DemoPackage extends EPackage
      * @generated
      */
     EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.demo.mydsl.demo.impl.AbstractElementImpl
+     * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getAbstractElement()
+     * @generated
+     */
+    EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
 
     /**
      * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.ImageImpl <em>Image</em>}' class.
@@ -596,6 +773,58 @@ public interface DemoPackage extends EPackage
      * @generated
      */
     EClass TR = eINSTANCE.getTr();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.ProcedureImpl <em>Procedure</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.demo.mydsl.demo.impl.ProcedureImpl
+     * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getProcedure()
+     * @generated
+     */
+    EClass PROCEDURE = eINSTANCE.getProcedure();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROCEDURE__NAME = eINSTANCE.getProcedure_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROCEDURE__PARAMETERS = eINSTANCE.getProcedure_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Image</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROCEDURE__IMAGE = eINSTANCE.getProcedure_Image();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.demo.mydsl.demo.impl.formal_parameter_listImpl <em>formal parameter list</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.demo.mydsl.demo.impl.formal_parameter_listImpl
+     * @see org.xtext.demo.mydsl.demo.impl.DemoPackageImpl#getformal_parameter_list()
+     * @generated
+     */
+    EClass FORMAL_PARAMETER_LIST = eINSTANCE.getformal_parameter_list();
+
+    /**
+     * The meta object literal for the '<em><b>Parameter</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FORMAL_PARAMETER_LIST__PARAMETER = eINSTANCE.getformal_parameter_list_Parameter();
 
   }
 

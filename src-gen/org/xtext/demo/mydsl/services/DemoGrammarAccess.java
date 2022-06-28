@@ -26,17 +26,37 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.demo.mydsl.Demo.Model");
 		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementsImageParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
+		private final RuleCall cElementsAbstractElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
 		
 		//Model:
-		//    elements+=Image* ;
+		//    elements+=AbstractElement* ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//elements+=Image*
+		//elements+=AbstractElement*
 		public Assignment getElementsAssignment() { return cElementsAssignment; }
 		
+		//AbstractElement
+		public RuleCall getElementsAbstractElementParserRuleCall_0() { return cElementsAbstractElementParserRuleCall_0; }
+	}
+	public class AbstractElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.demo.mydsl.Demo.AbstractElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cImageParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cProcedureParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//AbstractElement:
+		//    Image | Procedure
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Image | Procedure
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//Image
-		public RuleCall getElementsImageParserRuleCall_0() { return cElementsImageParserRuleCall_0; }
+		public RuleCall getImageParserRuleCall_0() { return cImageParserRuleCall_0; }
+		
+		//Procedure
+		public RuleCall getProcedureParserRuleCall_1() { return cProcedureParserRuleCall_1; }
 	}
 	public class ImageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.demo.mydsl.Demo.Image");
@@ -207,9 +227,97 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//INT
 		public RuleCall getNombreINTTerminalRuleCall_1_0() { return cNombreINTTerminalRuleCall_1_0; }
 	}
+	public class ProcedureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.demo.mydsl.Demo.Procedure");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cProcedureKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cParametersAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cParametersFormal_parameter_listParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
+		private final Assignment cImageAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cImageImageParserRuleCall_3_0 = (RuleCall)cImageAssignment_3.eContents().get(0);
+		private final Keyword cFinProcedureKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Procedure:
+		//    'procedure' name=ID ( parameters=formal_parameter_list ) ?
+		//        image=Image
+		//    'finProcedure';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'procedure' name=ID ( parameters=formal_parameter_list ) ?
+		//    image=Image
+		//'finProcedure'
+		public Group getGroup() { return cGroup; }
+		
+		//'procedure'
+		public Keyword getProcedureKeyword_0() { return cProcedureKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//( parameters=formal_parameter_list ) ?
+		public Assignment getParametersAssignment_2() { return cParametersAssignment_2; }
+		
+		//formal_parameter_list
+		public RuleCall getParametersFormal_parameter_listParserRuleCall_2_0() { return cParametersFormal_parameter_listParserRuleCall_2_0; }
+		
+		//image=Image
+		public Assignment getImageAssignment_3() { return cImageAssignment_3; }
+		
+		//Image
+		public RuleCall getImageImageParserRuleCall_3_0() { return cImageImageParserRuleCall_3_0; }
+		
+		//'finProcedure'
+		public Keyword getFinProcedureKeyword_4() { return cFinProcedureKeyword_4; }
+	}
+	public class Formal_parameter_listElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.demo.mydsl.Demo.formal_parameter_list");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cColonKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cParameterAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cParameterIDTerminalRuleCall_1_0 = (RuleCall)cParameterAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cParameterAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cParameterIDTerminalRuleCall_2_1_0 = (RuleCall)cParameterAssignment_2_1.eContents().get(0);
+		
+		//formal_parameter_list:
+		//    ':' parameter+=ID ( ":" parameter+=ID ) *
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//':' parameter+=ID ( ":" parameter+=ID ) *
+		public Group getGroup() { return cGroup; }
+		
+		//':'
+		public Keyword getColonKeyword_0() { return cColonKeyword_0; }
+		
+		//parameter+=ID
+		public Assignment getParameterAssignment_1() { return cParameterAssignment_1; }
+		
+		//ID
+		public RuleCall getParameterIDTerminalRuleCall_1_0() { return cParameterIDTerminalRuleCall_1_0; }
+		
+		//( ":" parameter+=ID ) *
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//":"
+		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
+		
+		//parameter+=ID
+		public Assignment getParameterAssignment_2_1() { return cParameterAssignment_2_1; }
+		
+		//ID
+		public RuleCall getParameterIDTerminalRuleCall_2_1_0() { return cParameterIDTerminalRuleCall_2_1_0; }
+	}
 	
 	
 	private final ModelElements pModel;
+	private final AbstractElementElements pAbstractElement;
 	private final ImageElements pImage;
 	private final SuiteElements pSuite;
 	private final InstElements pInst;
@@ -217,6 +325,8 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final TurnElements pTurn;
 	private final TlElements pTl;
 	private final TrElements pTr;
+	private final ProcedureElements pProcedure;
+	private final Formal_parameter_listElements pFormal_parameter_list;
 	
 	private final Grammar grammar;
 	
@@ -228,6 +338,7 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
+		this.pAbstractElement = new AbstractElementElements();
 		this.pImage = new ImageElements();
 		this.pSuite = new SuiteElements();
 		this.pInst = new InstElements();
@@ -235,6 +346,8 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pTurn = new TurnElements();
 		this.pTl = new TlElements();
 		this.pTr = new TrElements();
+		this.pProcedure = new ProcedureElements();
+		this.pFormal_parameter_list = new Formal_parameter_listElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -265,13 +378,24 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 
 	
 	//Model:
-	//    elements+=Image* ;
+	//    elements+=AbstractElement* ;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
 	
 	public ParserRule getModelRule() {
 		return getModelAccess().getRule();
+	}
+	
+	//AbstractElement:
+	//    Image | Procedure
+	//;
+	public AbstractElementElements getAbstractElementAccess() {
+		return pAbstractElement;
+	}
+	
+	public ParserRule getAbstractElementRule() {
+		return getAbstractElementAccess().getRule();
 	}
 	
 	//Image:
@@ -342,6 +466,29 @@ public class DemoGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getTrRule() {
 		return getTrAccess().getRule();
+	}
+	
+	//Procedure:
+	//    'procedure' name=ID ( parameters=formal_parameter_list ) ?
+	//        image=Image
+	//    'finProcedure';
+	public ProcedureElements getProcedureAccess() {
+		return pProcedure;
+	}
+	
+	public ParserRule getProcedureRule() {
+		return getProcedureAccess().getRule();
+	}
+	
+	//formal_parameter_list:
+	//    ':' parameter+=ID ( ":" parameter+=ID ) *
+	//;
+	public Formal_parameter_listElements getFormal_parameter_listAccess() {
+		return pFormal_parameter_list;
+	}
+	
+	public ParserRule getFormal_parameter_listRule() {
+		return getFormal_parameter_listAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

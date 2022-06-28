@@ -78,9 +78,9 @@ ruleModel returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getModelAccess().getElementsImageParserRuleCall_0());
+				newCompositeNode(grammarAccess.getModelAccess().getElementsAbstractElementParserRuleCall_0());
 			}
-			lv_elements_0_0=ruleImage
+			lv_elements_0_0=ruleAbstractElement
 			{
 				if ($current==null) {
 					$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -89,11 +89,47 @@ ruleModel returns [EObject current=null]
 					$current,
 					"elements",
 					lv_elements_0_0,
-					"org.xtext.demo.mydsl.Demo.Image");
+					"org.xtext.demo.mydsl.Demo.AbstractElement");
 				afterParserOrEnumRuleCall();
 			}
 		)
 	)*
+;
+
+// Entry rule entryRuleAbstractElement
+entryRuleAbstractElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAbstractElementRule()); }
+	iv_ruleAbstractElement=ruleAbstractElement
+	{ $current=$iv_ruleAbstractElement.current; }
+	EOF;
+
+// Rule AbstractElement
+ruleAbstractElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getAbstractElementAccess().getImageParserRuleCall_0());
+		}
+		this_Image_0=ruleImage
+		{
+			$current = $this_Image_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getAbstractElementAccess().getProcedureParserRuleCall_1());
+		}
+		this_Procedure_1=ruleProcedure
+		{
+			$current = $this_Procedure_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
 ;
 
 // Entry rule entryRuleImage
@@ -412,6 +448,154 @@ ruleTr returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleProcedure
+entryRuleProcedure returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProcedureRule()); }
+	iv_ruleProcedure=ruleProcedure
+	{ $current=$iv_ruleProcedure.current; }
+	EOF;
+
+// Rule Procedure
+ruleProcedure returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='procedure'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getProcedureAccess().getProcedureKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getProcedureAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getProcedureRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProcedureAccess().getParametersFormal_parameter_listParserRuleCall_2_0());
+				}
+				lv_parameters_2_0=ruleformal_parameter_list
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProcedureRule());
+					}
+					set(
+						$current,
+						"parameters",
+						lv_parameters_2_0,
+						"org.xtext.demo.mydsl.Demo.formal_parameter_list");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProcedureAccess().getImageImageParserRuleCall_3_0());
+				}
+				lv_image_3_0=ruleImage
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProcedureRule());
+					}
+					set(
+						$current,
+						"image",
+						lv_image_3_0,
+						"org.xtext.demo.mydsl.Demo.Image");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='finProcedure'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getProcedureAccess().getFinProcedureKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleformal_parameter_list
+entryRuleformal_parameter_list returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFormal_parameter_listRule()); }
+	iv_ruleformal_parameter_list=ruleformal_parameter_list
+	{ $current=$iv_ruleformal_parameter_list.current; }
+	EOF;
+
+// Rule formal_parameter_list
+ruleformal_parameter_list returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=':'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getFormal_parameter_listAccess().getColonKeyword_0());
+		}
+		(
+			(
+				lv_parameter_1_0=RULE_ID
+				{
+					newLeafNode(lv_parameter_1_0, grammarAccess.getFormal_parameter_listAccess().getParameterIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFormal_parameter_listRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"parameter",
+						lv_parameter_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			otherlv_2=':'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getFormal_parameter_listAccess().getColonKeyword_2_0());
+			}
+			(
+				(
+					lv_parameter_3_0=RULE_ID
+					{
+						newLeafNode(lv_parameter_3_0, grammarAccess.getFormal_parameter_listAccess().getParameterIDTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFormal_parameter_listRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"parameter",
+							lv_parameter_3_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+		)*
 	)
 ;
 

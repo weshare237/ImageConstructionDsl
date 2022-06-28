@@ -66,6 +66,7 @@ public class DemoFactoryImpl extends EFactoryImpl implements DemoFactory
     switch (eClass.getClassifierID())
     {
       case DemoPackage.MODEL: return createModel();
+      case DemoPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case DemoPackage.IMAGE: return createImage();
       case DemoPackage.SUITE: return createSuite();
       case DemoPackage.INST: return createInst();
@@ -73,6 +74,8 @@ public class DemoFactoryImpl extends EFactoryImpl implements DemoFactory
       case DemoPackage.TURN: return createTurn();
       case DemoPackage.TL: return createTl();
       case DemoPackage.TR: return createTr();
+      case DemoPackage.PROCEDURE: return createProcedure();
+      case DemoPackage.FORMAL_PARAMETER_LIST: return createformal_parameter_list();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -88,6 +91,18 @@ public class DemoFactoryImpl extends EFactoryImpl implements DemoFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AbstractElement createAbstractElement()
+  {
+    AbstractElementImpl abstractElement = new AbstractElementImpl();
+    return abstractElement;
   }
 
   /**
@@ -172,6 +187,30 @@ public class DemoFactoryImpl extends EFactoryImpl implements DemoFactory
   {
     TrImpl tr = new TrImpl();
     return tr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Procedure createProcedure()
+  {
+    ProcedureImpl procedure = new ProcedureImpl();
+    return procedure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public formal_parameter_list createformal_parameter_list()
+  {
+    formal_parameter_listImpl formal_parameter_list = new formal_parameter_listImpl();
+    return formal_parameter_list;
   }
 
   /**
